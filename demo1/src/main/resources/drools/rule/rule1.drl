@@ -1,0 +1,27 @@
+package com.xu.drools;
+import com.kyn.demo1.entity.Person;
+
+rule "ruleName_1"
+	when
+        $p : Person(age > 15 && age<25);
+    then
+		System.out.println("activate ruleName_1,hello, your age is："+$p.getAge());
+end
+
+rule "ruleName_2"
+	when
+        $p : Person(age >= 25 && age<35);
+    then
+		System.out.println("activate ruleName_2,hello, your age is："+$p.getAge());
+end
+
+rule "ruleName_3"
+	when
+        $p : Person(age >= 35);
+    then
+		System.out.println("activate ruleName_3,hello, your age is："+$p.getAge());
+end
+
+query "people1"
+    person : Person( age > 20 )
+end
